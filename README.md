@@ -1,41 +1,63 @@
-# mwhsrecon_tool
+# nwksrecon_tool
+![Logo](https://github.com/user-attachments/assets/bb878bd2-415a-4bdc-9036-996fd9c70c73)
 
+
+## Authors
+[@HuyDom](https://github.com/DOMBNC)
 **Made by HuyDom**
 
 ## Giới thiệu
 
-Công cụ **mwhsrecon_tool** cho phép thực hiện khảo sát (reconnaissance) website một cách toàn diện, bao gồm:
+The **mwhsrecon_tool** allows for a comprehensive website reconnaissance, including:
 
-- Quét cổng và dịch vụ bằng **Nmap**
-- Truy vấn **WHOIS** domain
-- Lấy **HTTP headers** (kèm khả năng tùy chỉnh cookies)
-- Lấy thông tin **SSL/TLS certificate**
-- **Liệt kê thư mục** (Directory Enumeration) bất đồng bộ bằng `aiohttp`
-- **Khám phá tham số URL** bằng cách crawl
-- Tích hợp công cụ ngoài như **Gobuster** và **Dirb**
-- Lưu kết quả dưới dạng file JSON
-- Xử lý dừng đột ngột bằng `Ctrl+C` (graceful interrupt)
+- Port and service scanning with **Nmap**
+- Domain **WHOIS** query
+- Get **HTTP headers** (with the ability to customize cookies)
+- Get **SSL/TLS certificate information**
+- Asynchronous **Directory Enumeration** with `aiohttp`
+- **URL parameter discovery** by crawling
+- Integrate external tools such as **Gobuster** and **Dirb**
+- Save results as JSON files
+- Handle sudden stops with `Ctrl+C` (graceful interrupt)
 
-## Sơ đồ Mind Map (Mermaid)
+## Installation
+# 1. Clone repository:
+```bash
+ git clone https://github.com/DOMBNC/mwhsrecon_tool.git
+ cd nwhsrecon_tool
+```
+# 2. Environment setup (should use venv or similar):
+```bash
+ python3 -m venv venv
+ source venv/bin/activate
+ pip install -r requirements.txt
+```
+# 3. Run the tool:
+```bash
+ python nwhsrecon.py
+```
+## How to use
 
-Dưới đây là sơ đồ tóm tắt luồng xử lý của **mwhsrecon_tool**:
+Target: The domain or IP you want to scan (e.g. example.com).
 
-```mermaid
-flowchart TB
-    A((Start)) --> B{main()}
-    B --> C[In ra Banner]
-    B --> D[Nhập Thông Tin Target\nWordlist, Depth, Rate, Cookies]
-    D --> E[Khởi tạo WebRecon]
-    E --> F[run()]
-    F --> F1[Nmap Scan]
-    F --> F2[WHOIS Lookup]
-    F --> F3[HTTP Headers]
-    F --> F4[SSL Info]
-    F --> F5[Directory Enum (Async)]
-    F --> F6[Parameter Discovery (Crawl)]
-    F --> F7[Integrate Gobuster]
-    F --> F8[Integrate Dirb]
-    F --> G((Kết Thúc Quét))
-    G --> H[display_report()]
-    H --> I[save_report()]
-    I --> J((End))
+Wordlist: The path to the file containing the wordlist/directories to brute-force (default wordlist.txt).
+
+Crawl Depth: The depth of the link to find URL parameters.
+
+Rate Limit: The time to wait (seconds) between each request when listing directories (Directory enum).
+
+Cookies: Optional cookie header, e.g. "sessionid=abc123; token=xyz456".
+
+After the scan is complete, the tool will:
+
+Print a detailed report to the screen
+
+Save the report file as JSON (e.g. recon_report_example.com.json)
+
+## 🛠 Skills
+
+python
+
+## Feedback
+
+If you have any feedback, please reach out to us at huytrinh870@gmail.com
