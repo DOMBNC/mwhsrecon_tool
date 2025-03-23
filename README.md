@@ -60,4 +60,4 @@ python
 
 ## Feedback
 
-If you have any feedback, please reach out to us at huytrinh870@gmail.com
+If you have any feedback, please reach out to me at huytrinh870@gmail.com
