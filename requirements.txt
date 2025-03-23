@@ -1,0 +1,9 @@
+requests
+aiohttp
+beautifulsoup4
+python-whois
+python-nmap
+colorama
+rich
+tqdm
+pyfiglet
